@@ -1,0 +1,7 @@
+helmDefaults:
+  atomic: true
+  wait: true
+
+helmfiles:
+  - path: applications/gitlab-runner/helmfile.yaml
+  - path: applications/prometheus/helmfile.yaml
