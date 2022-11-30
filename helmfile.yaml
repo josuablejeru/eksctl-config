@@ -3,5 +3,6 @@ helmDefaults:
   wait: true
 
 helmfiles:
+  - path: applications/gitlab/helmfile.yaml
   - path: applications/gitlab-runner/helmfile.yaml
   - path: applications/prometheus/helmfile.yaml
