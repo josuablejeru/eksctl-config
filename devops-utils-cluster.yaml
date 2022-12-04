@@ -11,10 +11,25 @@ nodeGroups:
     instanceType: m5.large
     desiredCapacity: 1
 
+# This nodegroup is needed for running the Gitlab runner in privilage mode
+managedNodeGroups:
+  - name: managed-ng-1
+    instanceType: m5.large
+    minSize: 2
+    maxSize: 4
+    labels: { role: worker }
+    tags:
+      nodegroup-role: worker
+      # EC2 tags required for cluster-autoscaler auto-discovery
+      k8s.io/cluster-autoscaler/node-template/label/lifecycle: OnDemand
+      k8s.io/cluster-autoscaler/node-template/label/aws.amazon.com/spot: "false"
+      k8s.io/cluster-autoscaler/node-template/label/gpu-count: "0"
+      k8s.io/cluster-autoscaler/enabled: "true"
+      k8s.io/cluster-autoscaler/cluster-23: "owned"
+
 fargateProfiles:
-  - name: fp-gitlab
+  - name: fp-management
     selectors:
-      - namespace: gitlab
       - namespace: kube-system
       - namespace: monitoring
 
