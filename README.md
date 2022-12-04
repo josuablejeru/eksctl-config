@@ -17,7 +17,9 @@ $ helm plugin install https://github.com/databus23/helm-diff
 ```
 
 # Get started
-<!-- todo: eksctl -->
+```bash
+$ eksctl create -f ./devops-utils-cluster.yaml
+```
 
 
 ## apply helm
@@ -30,4 +32,16 @@ $ kubectl apply --server-side -k manifests/prometheus
 To deploy the helmcharts to your cluster use `helmfile`
 ```bash
 $ helmfile apply
+```
+
+# Working with eksctl
+
+to change something on the fargate configuration, delete and then recreate the fargate profile based on your new configuratino
+```bash
+$ eksctl delete fargateprofile --cluster devops-utils <name-of-fargate-profile>
+```
+
+Recreate the fargate cluster
+```bash
+$ eksctl create fargateprofile -f devops-utils-cluster.yaml
 ```
