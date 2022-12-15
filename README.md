@@ -23,11 +23,11 @@ $ eksctl create -f ./devops-utils-cluster.yaml
 
 
 ## apply helm
-befor you can deploy the prometheus (with Grafana) helmchart you need to create some CRD in you cluster.
+<!-- befor you can deploy the prometheus (with Grafana) helmchart you need to create some CRD in you cluster.
 Use the command down below to apply the `kustomization` files
 ```bash
 $ kubectl apply --server-side -k manifests/prometheus
-```
+``` -->
 
 To deploy the helmcharts to your cluster use `helmfile`
 ```bash

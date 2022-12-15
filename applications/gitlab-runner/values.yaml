@@ -1,6 +1,6 @@
 ## REQUIRED VALUES
-gitlabUrl: "gitlab.com"
-runnerRegistrationToken: "29387839182123123" # not a real token
+gitlabUrl: "https://gitlab.com/"
+runnerRegistrationToken: "notatoken" # not a real token
 
 ## Configure the maximum number of concurrent jobs
 ## - Documentation: https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section
